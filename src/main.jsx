@@ -10,7 +10,6 @@ import HomePage from './HomePage/Components/HomePage';
 import Busqueda from './Common/Busqueda';
 import Post from './Entity/Post';
 import Update from './Entity/Update';
-import keys from '../keys.json'
 import Navbar from './Common/NavBar';
 
 import { SessionProvider } from './SessionProvider';
