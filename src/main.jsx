@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const googleClientID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+console.log("Google Client ID:", googleClientID);  // Verifica que no esté undefined
 
 import './index.css'
 
