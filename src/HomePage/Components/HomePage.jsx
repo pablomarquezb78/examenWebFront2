@@ -24,13 +24,13 @@ function HomePage(){
     useEffect(() => {
       const testEndpoint = async () => {
         try {
-          const response = await axios.get('https://examenwebback2-production-fe19.up.railway.app/eventos');
+          const response = await axios.get('https://examenwebback2-production.up.railway.app/eventos');
           console.log('Respuesta:', response.data);
         } catch (error) {
           console.error('Error:', error.message);
         }
       };
-    
+
       testEndpoint();
     }, []);
 
