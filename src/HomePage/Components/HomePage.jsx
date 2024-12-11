@@ -10,6 +10,9 @@ const cookies = new Cookies();
 
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 
+import axios from 'axios'
+
+
 function HomePage(){
     const [showLogViewer, setShowLogViewer] = useState(false);
     const { isLoggedIn } = useSession();
