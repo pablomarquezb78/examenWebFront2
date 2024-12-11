@@ -80,7 +80,6 @@ function Update(){
 
     return (
         <>
-
             <div className='min-h-screen bg-gray-100 text-black p-5 w-full sm:w-5/6 md:w-5/6 lg:w-4/6 mx-auto rounded-lg shadow-2xl bg-white'>
                     <ArrowBackIcon className="hover:cursor-pointer" onClick={handleBack}/>
                     <h2 className='pt-4 text-3xl font-bold mb-2' >Creacion Evento</h2>
