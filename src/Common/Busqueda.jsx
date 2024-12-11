@@ -59,7 +59,7 @@ const Busqueda = () => {
       if (lon) queryParams.push(`lon=${lon}`);
       
       const queryString = queryParams.length ? `?${queryParams.join('&')}` : '';
-      const URL = `${apiEndpoints.api}/eventos${queryString}`;
+      const URL = `${apiEndpoints.api}/eventos/${queryString}`;
       
       console.log(URL);
   
