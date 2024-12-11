@@ -2,8 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-const googleClientID = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-
 import './index.css'
 
 import HomePage from './HomePage/Components/HomePage';
@@ -11,12 +9,13 @@ import Busqueda from './Common/Busqueda';
 import Post from './Entity/Post';
 import Update from './Entity/Update';
 import Navbar from './Common/NavBar';
+import keys from '../keys.json'
 
 import { SessionProvider } from './SessionProvider';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 createRoot(document.getElementById('root')).render(
-  <GoogleOAuthProvider clientId={googleClientID}>
+  <GoogleOAuthProvider clientId={keys.GoogleClientID}>
     <SessionProvider> 
       <Router>
         <Navbar/>
