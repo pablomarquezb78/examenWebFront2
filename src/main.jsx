@@ -16,7 +16,7 @@ import { SessionProvider } from './SessionProvider';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 createRoot(document.getElementById('root')).render(
-  <GoogleOAuthProvider clientId={GoogleClientID}>
+  <GoogleOAuthProvider clientId={googleClientID}>
     <SessionProvider> 
       <Router>
         <Navbar/>
