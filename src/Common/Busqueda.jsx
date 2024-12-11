@@ -53,23 +53,17 @@ const Busqueda = () => {
 
   const fetchData = async () => {
     try {
-      let URL = apiEndpoints.api + `/eventos?`;
-
-      if (nombre) {
-        URL += `nombre=${nombre}&`;
-      }
-      if (organizador) {
-        URL += `organizador=${organizador}&`;
-      }
-      if (lat) {
-        URL += `lat=${lat}&`;
-      }
-      if (lon) {
-        URL += `lon=${lon}&`;
-      }
-
+      const queryParams = [];
+      if (nombre) queryParams.push(`nombre=${nombre}`);
+      if (organizador) queryParams.push(`organizador=${organizador}`);
+      if (lat) queryParams.push(`lat=${lat}`);
+      if (lon) queryParams.push(`lon=${lon}`);
+      
+      const queryString = queryParams.length ? `?${queryParams.join('&')}` : '';
+      const URL = `${apiEndpoints.api}/eventos${queryString}`;
+      
       console.log(URL);
-
+  
       const response = await axios.get(URL);
       setData(response.data);
     } catch (err) {
