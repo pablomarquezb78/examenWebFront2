@@ -18,6 +18,19 @@ function HomePage(){
       setShowLogViewer(prevState => !prevState);
     };
 
+    useEffect(() => {
+      const testEndpoint = async () => {
+        try {
+          const response = await axios.get('https://examenwebback2-production.up.railway.app/eventos');
+          console.log('Respuesta:', response.data);
+        } catch (error) {
+          console.error('Error:', error.message);
+        }
+      };
+    
+      testEndpoint();
+    }, []);
+
     return(
     <div id='homeScreen' className='h-screen flex flex-col justify-between items-center'>
 

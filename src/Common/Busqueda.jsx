@@ -37,7 +37,6 @@ const Busqueda = () => {
   const handleDeleteEvent = async(id) =>{    
     try {
       let URL = apiEndpoints.api + `/eventos/` + id;
-      console.log(URL);
       const response = await axios.delete(URL);
       await fetchData();
     } catch (err) {
