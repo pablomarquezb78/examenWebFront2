@@ -20,6 +20,7 @@ function Post(){
         nombre: "",
         imagen: "",
         lugar: "",
+        timestamp: "",
       });
     
     const handleEventSubmit = async (e) => {
@@ -35,7 +36,7 @@ function Post(){
         nombre: formState.nombre,
         lat: parseFloat(formState.lat),
         lon: parseFloat(formState.lon),
-        timestamp: new Date().toISOString(),
+        timestamp: formState.timestamp,
         organizador: "",
         imagen: formState.imagen,
         lugar: formState.lugar,
@@ -97,6 +98,14 @@ function Post(){
                         type="text"
                         name="lugar"
                         value={formState.lugar}
+                        onChange={handleInputChange}
+                        className='border rounded px-4 py-2 mr-3 bg-gray-300'
+                        />
+                        <label className="font-bold">Fecha</label>
+                        <input 
+                        type="datetime-local"
+                        name="timestamp"
+                        value={formState.timestamp}
                         onChange={handleInputChange}
                         className='border rounded px-4 py-2 mr-3 bg-gray-300'
                         />
