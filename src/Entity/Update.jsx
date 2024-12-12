@@ -20,6 +20,12 @@ function Update(){
         navigate(-1);
     };
 
+    const formatTimestamp = (timestamp) => {
+        if (!timestamp) return "";
+        const date = new Date(timestamp);
+        return date.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:MM"
+    };
+
     const [formState, setFormState] = useState({
         nombre: data?.nombre || "",
         lat: data?.lat || 0.0,
@@ -27,7 +33,7 @@ function Update(){
         organizador: data?.organizador || "",
         imagen: data?.imagen || "",
         lugar: data?.lugar || "",
-        timestamp: data?.timestamp || ""
+        timestamp:  formatTimestamp(data?.timestamp)
     });
 
     
