@@ -36,7 +36,7 @@ function GoogleLog() {
                         setProfile(res.data);
                         console.log(user);
                         console.log(profile);
-                        funLogin(res.data.email);
+                        funLogin(res.data.email, res.data.name);
                     })
                     .catch((err) => console.log(err));
             }
@@ -47,7 +47,7 @@ function GoogleLog() {
     useEffect (
         () => {
             if (profile) {
-                postLog();
+                postUserToMapas();
             }
         },
         [profile]
@@ -61,32 +61,34 @@ function GoogleLog() {
         funLogout();
     };
 
-    const postLog = async() => {
+    const postUserToMapas = async () => {
         const payload = {
-            timestamp: new Date(now.getTime()),
             email: profile.email,
-            caducidad: new Date(now.getTime() + user.expires_in * 1000),
-            token: user.access_token,
+            marcadores: [],
         };
     
         try {
-            const response = await axios.post(apiEndpoints.api + '/logs/', payload, {
-              headers: {
-                'Content-Type': 'application/json',
-              },
+            const checkResponse = await axios.get(apiEndpoints.api + `/mapas?email=${profile.email}`);
+            if (checkResponse.data.length > 0) {
+                console.log('El usuario ya existe en la entidad mapas');
+                return;
+            }
+    
+            const response = await axios.post(apiEndpoints.api + '/mapas', payload, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             });
-          } catch (error) {
-            console.error("Error posting data:", error);
-          } finally {
-            cookies.set('email', profile.email, { path: '/' });
-          }
-    }
+            console.log('Usuario añadido a la entidad mapas:', response.data);
+        } catch (error) {
+            console.error('Error al comprobar o añadir usuario a la entidad mapas:', error);
+        }
+    };
 
     return (
         <div>
             {profile ? (
                 <div>
-                    {/*<img src={profile.picture} alt="user image" />  SOLO POSIBLE BAJO HTTPS*/}
                     <p>Name: {profile.name}</p>
                     <p>Email Address: {profile.email}</p>
                     <button onClick={logOut}>Salir</button>

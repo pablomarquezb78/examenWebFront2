@@ -23,12 +23,12 @@ const UploadFile = ({setFormState}) => {
     setError(false);
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('upload_preset', ExamenWeb);
-    formData.append('cloud_name', dfem7awrg);
+    formData.append('upload_preset', "ExamenWeb");
+    formData.append('cloud_name', "dfem7awrg");
 
     try {
       const response = await axios.post(
-        'https://api.cloudinary.com/v1_1/'+ dfem7awrg + '/upload',
+        'https://api.cloudinary.com/v1_1/'+ "dfem7awrg" + '/upload',
         formData
       );
       setLoading(false);
