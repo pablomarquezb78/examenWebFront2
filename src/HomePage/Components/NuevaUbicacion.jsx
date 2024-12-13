@@ -43,7 +43,7 @@ function NuevaUbicacion(){
         }
 
         try {
-            const response = await axios.get(apiEndpoints.api + "/mapas?email=" + userEmail);
+            const response = await axios.get(apiEndpoints.api + "/mapas/?email=" + userEmail);
             const existingMapa = response.data[0];
 
             const updatedMarcadores = [...existingMapa.marcadores, { lat: formState.lat, lon: formState.lon, 
