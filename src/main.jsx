@@ -8,6 +8,7 @@ import HomePage from './HomePage/Components/HomePage';
 import Navbar from './Common/NavBar';
 import Acceso from './HomePage/Components/Acceso';
 import NuevaUbicacion from './HomePage/Components/NuevaUbicacion';
+import Visita from './HomePage/Components/Visita'
 import keys from '../keys.json'
 
 import { SessionProvider } from './SessionProvider';
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/" element={<HomePage/>} />
             <Route path='/acceso' element={<Acceso/>}/>
             <Route path='/ubicacion' element={<NuevaUbicacion/>}/>
+            <Route path='/visita' element={<Visita/>}/>
           </Routes>
       </Router>
     </SessionProvider>
