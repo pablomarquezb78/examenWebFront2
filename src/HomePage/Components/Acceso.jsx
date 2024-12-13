@@ -29,7 +29,7 @@ function Acceso() {
     const fetchData = async () => {
         try {
             setLoading(true);
-            const url = `${apiEndpoints.api}/mapas?email=${userEmail}`;
+            const url = `${apiEndpoints.api}/mapas/?email=${userEmail}`;
             const response = await axios.get(url);
 
             if (response.data && response.data[0]) {
