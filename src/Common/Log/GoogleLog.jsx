@@ -68,13 +68,13 @@ function GoogleLog() {
         };
     
         try {
-            const checkResponse = await axios.get(apiEndpoints.api + `/mapas?email=${profile.email}`);
+            const checkResponse = await axios.get(apiEndpoints.api + `/mapas/?email=${profile.email}`);
             if (checkResponse.data.length > 0) {
                 console.log('El usuario ya existe en la entidad mapas');
                 return;
             }
     
-            const response = await axios.post(apiEndpoints.api + '/mapas', payload, {
+            const response = await axios.post(apiEndpoints.api + '/mapas/', payload, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
